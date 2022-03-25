@@ -1,0 +1,174 @@
+<!-- 
+Faculdade de Tecnologia de Lins - Prof Antonio Seabra 
+Programação para Dispositivos Móveis
+Curso: Análise e Desenvolvimento de Sistemas
+Prof. Felipe Maciel - felipe.maciel@fateclins.edu.br
+Exercício Básico do Básico do Básico do Básico do Básico do Básico do Básico...
+********************************************************************************************
+Sem alterar a estrutura HTML, implemente o necessário para que a calculadora funcione corretamente. 
+Funcionamento:
+Após o usuário digitar os dois valores (val1 e val2) e clicar no botão referente a operação que deseja, o resultado da operação deve aparecer no campo Resultado. Caso o resultado da operação seja negativa (resultado < 0), adicione a classe bgVermelho ao campo resultado. 
+Condição:
+{val1} c Z ; {val2} c Z;
+Obs: utilize a função parseInt(valor) para converter o valor para inteiro
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office"
+	xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+
+		.btnOperacao {
+			height: 30px;
+			background-color: #000;
+			color: #FFF;
+			border: 0px;
+			width: 50px;
+			font-size: 20px;
+		}
+
+		input[type="text"] {
+			width: 213px;
+			height: 50px;
+		}
+
+		.borda {
+			border: 1px dashed #999;
+			width: 500px;
+			padding-bottom: 50px;
+			background-color: #fafafa;
+			margin: auto auto;
+		}
+
+		#main {
+			width: 100%;
+		}
+
+		.bgVermelho {
+			background-color: #900;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main">
+		<div class="borda">
+			<h1>Calculadora v1.0</h1>
+			<input type="text" value="" id="val1" placeholder="Digite valor 1"><br><br>
+			<input type="text" value="" id="val2" placeholder="Digite valor 2"><br><br>
+			<input type="button" class="btnOperacao" value="+" id="somar">
+			<input type="button" class="btnOperacao" value="-" id="subtrair">
+			<input type="button" class="btnOperacao" value="/" id="dividir">
+			<input type="button" class="btnOperacao" value="*" id="multiplicar"><br><br>
+			<input type="text" value="" id="resultado" placeholder="Resultado" disabled="disabled"><br>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function () {
+			/*$('#somar').click(function () {
+				
+				let somar = parseInt($('#val1').val());
+				let somar2 = parseInt($('#val2').val());
+				let resultado = parseInt($('#resultado').val());
+				parseInt(resultado = somar + somar2);
+				parseInt($('#resultado').val(resultado));
+				if (resultado < 0) {
+					$('#resultado').addClass('bgVermelho');
+				
+				} else
+				{
+					$('#resultado').removeClass('bgVermelho');
+				}
+			});
+			$('#subtrair').click(function () {
+				let somar = $('#val1').val();
+				let somar2 = $('#val2').val();
+				let resultado = $('#resultado').val();
+				resultado = (somar - somar2);
+				$('#resultado').val(resultado);
+				if (resultado < 0) {
+					$('#resultado').addClass('bgVermelho');
+				
+				} else
+				{
+					$('#resultado').removeClass('bgVermelho');
+				}
+			});
+			$('#dividir').click(function () {
+				let somar = $('#val1').val();
+				let somar2 = $('#val2').val();
+				let resultado = $('#resultado').val();
+				resultado = (somar / somar2);
+				$('#resultado').val(resultado);
+				if (resultado < 0) {
+					$('#resultado').addClass('bgVermelho');
+				
+				} else
+				{
+					$('#resultado').removeClass('bgVermelho');
+				}
+			});
+			$('#multiplicar').click(function () {
+				let somar = $('#val1').val();
+				let somar2 = $('#val2').val();
+				let resultado = $('#resultado').val();
+				resultado = (somar * somar2);
+				$('#resultado').val(resultado);
+				if (resultado < 0) {
+					$('#resultado').addClass('bgVermelho');
+				
+				} else
+				{
+					$('#resultado').removeClass('bgVermelho');
+				}
+			
+			}); */
+			/* DUVIDA  	$('.btnOperacao').click(function () {
+					let somar = parseInt($('#val1').val());
+					let somar2 = parseInt($('#val2').val());
+					let operacao = $(this).attr('id');
+					if (operacao == 'somar') {
+						resultado = (somar + somar2);
+			
+					} else if (operacao == 'subtrair') {
+						resultado = (somar - somar2);
+				
+					}
+					else if (operacao == 'dividir') {
+						resultado = (somar / somar2);
+			
+					}
+					else (operacao == 'multiplicar')
+					{
+						resultado = (somar * somar2);
+					
+					}
+					alert(resultado);
+				});*/
+			$('.btnOperacao').click(function () {
+				let somar = parseInt($('#val1').val());
+				let somar2 = parseInt($('#val2').val());
+				//	let operacao = $(this).attr('value');
+				let operacao = $(this).val();
+				let resultado = eval(somar + operacao + somar2);
+				$('#resultado').val(resultado);
+				if (resultado < 0) {
+					$('#resultado').addClass('bgVermelho');
+
+				} else {
+					$('#resultado').removeClass('bgVermelho');
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
